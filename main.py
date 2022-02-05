@@ -116,6 +116,11 @@ def init_pattern_time():
 
 
 def init_button():
+    #
+    # 사용되는 그리드
+    # (0,3), (1,3), (0,4, rowspan=2), (0,5, rowspan=2)
+    #
+
     meteo_reset_button = Button(
         text=RESET,
         height=2,
