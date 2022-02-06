@@ -3,7 +3,10 @@
 #
 import time
 
+from functools import partial
+from threading import Thread
 from tkinter import *
+from utils.util import on_click
 from consts.const import (
     APP_COLOR,
     TITLE_NAME,
@@ -14,7 +17,6 @@ from consts.const import (
     BLACK_MAGITION_3RD_WARRENT_SECOND,
     RESET,
     ALL_RESET,
-    ALL_START,
 )
 
 
@@ -99,6 +101,7 @@ def init_pattern_time():
     meteo_second_entry.grid(
         row=0,
         column=2,
+        sticky=E
     )
 
     warrent_second_entry= Entry(
@@ -112,31 +115,54 @@ def init_pattern_time():
     warrent_second_entry.grid(
         row=1,
         column=2,
+        sticky=W+E
     )
 
+    return BLACK_MAGITION_3RD_METEO, BLACK_MAGITION_3RD_WARRENT, meteo_second_entry, warrent_second_entry
 
-def init_button():
+
+def init_button(
+        root, 
+        meto_sec, 
+        warrent_sec,
+        meteo_second_entry, 
+        warrent_second_entry
+    ):
     #
     # 사용되는 그리드
-    # (0,3), (1,3), (0,4, rowspan=2), (0,5, rowspan=2)
+    # (0,3), (1,3), (0,4, rowspan=2)
     #
 
     meteo_reset_button = Button(
         text=RESET,
         height=2,
         bg=APP_COLOR,
-        font=(FONT, BUTTON_FONT_SIZE, "")
+        font=(FONT, BUTTON_FONT_SIZE, ""),
+        command= partial(
+            on_click, 
+            root,
+            meteo_stringvar=meteo_sec,
+            meteo_sec=BLACK_MAGITION_3RD_METEO_SECOND,
+            meteo_second_entry=meteo_second_entry
+        )
     )
     meteo_reset_button.grid(
         row=0,
-        column=3
+        column=3,
     )
 
     warrent_reset_button = Button(
         text=RESET,
         height=2,
         bg=APP_COLOR,
-        font=(FONT, BUTTON_FONT_SIZE, "")
+        font=(FONT, BUTTON_FONT_SIZE, ""),
+        command= partial(
+            on_click, 
+            root,
+            warrent_stringvar=warrent_sec,
+            warrent_sec=BLACK_MAGITION_3RD_WARRENT_SECOND,
+            warrent_second_entry=warrent_second_entry
+        )
     )
     warrent_reset_button.grid(
         row=1,
@@ -147,23 +173,21 @@ def init_button():
         text=ALL_RESET,
         height=5,
         bg=APP_COLOR,
-        font=(FONT, BUTTON_FONT_SIZE, "")
+        font=(FONT, BUTTON_FONT_SIZE, ""),
+        command= partial(
+            on_click, 
+            root,
+            meteo_sec,
+            warrent_sec,
+            BLACK_MAGITION_3RD_METEO_SECOND,
+            BLACK_MAGITION_3RD_WARRENT_SECOND,
+            meteo_second_entry,
+            warrent_second_entry
+        )
     )
     all_reset_button.grid(
         row=0,
         column=4,
-        rowspan=2
-    )
-
-    all_start = Button(
-        text=ALL_START,
-        height=5,
-        bg=APP_COLOR,
-        font=(FONT, BUTTON_FONT_SIZE, "")
-    )
-    all_start.grid(
-        row=0,
-        column=5,
         rowspan=2
     )
 
@@ -175,10 +199,13 @@ if __name__ == "__main__":
     root.title(TITLE_NAME)
     root.configure(bg=APP_COLOR)
 
+    # Label init
     _ = init_label()
-    _ = init_pattern_time()
-    _ = init_button()
+
+    # Pattern Entry init
+    meteo_sec, warrent_sec, meteo_second_entry, warrent_second_entry = init_pattern_time()
+
+    # Button Init(with Event)
+    _ = init_button(root, meteo_sec, warrent_sec, meteo_second_entry, warrent_second_entry)
 
     root.mainloop()
-
-

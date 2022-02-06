@@ -3,7 +3,7 @@
 #
 
 APP_COLOR = 'white'
-RESOULTION = "540x140"
+RESOULTION = "490x135"
 TITLE_NAME = "Maple Story Timmer"
 
 FONT = "Arial"
@@ -14,10 +14,13 @@ METEO = "메테오"
 WARRENT = "권능"
 
 # 검은마법사 3페이즈 패턴(초) 주기 초기 값 설정
-BLACK_MAGITION_3RD_METEO_SECOND = 35
-BLACK_MAGITION_3RD_WARRENT_SECOND = 65
+BLACK_MAGITION_3RD_METEO_SECOND = 13
+BLACK_MAGITION_3RD_WARRENT_SECOND = 14
 
 # 버튼 텍스트
 RESET= "초기화"
-ALL_RESET= "전체 초기화"
-ALL_START= "전체 시작"
+ALL_RESET= "전체 시작(초기화)"
+
+# 텍스트 컬러
+WARRNING_COLOR = 'red'
+COMMON_COLOR = 'black'
