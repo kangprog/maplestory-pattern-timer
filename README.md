@@ -2,7 +2,7 @@
 ## 개요
 검은마법사 3페이즈 패턴(메테오, 권능) 타이머 입니다.
 
-![image](https://user-images.githubusercontent.com/40859447/152670779-1908a01b-1bc3-4352-a162-1b8e493a26ec.png)
+![image](https://user-images.githubusercontent.com/40859447/152670797-976392d2-99f9-4b19-a815-3f8542619f04.png)
 
 
 <br></br>
