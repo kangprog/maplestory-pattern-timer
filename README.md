@@ -33,4 +33,4 @@
     $ python main.py
 
 2. 릴리즈된 `.exe` 파일을 다운로드 하여 실행 <br></br>
-    (TBD)
+    `/dist/Timer.exe`를 다운로드 후 실행 합니다.

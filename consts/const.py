@@ -4,7 +4,7 @@
 
 APP_COLOR = 'white'
 RESOULTION = "490x135"
-TITLE_NAME = "Maple Story Timmer"
+TITLE_NAME = "Maple Story Timer"
 
 FONT = "Arial"
 FONT_SIZE = 30
