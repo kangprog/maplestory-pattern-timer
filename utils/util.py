@@ -3,17 +3,16 @@
 #
 import time
 
-from consts.const import (
-    WARRNING_COLOR,
-    COMMON_COLOR,
-    BLACK_MAGITION_3RD_METEO_SECOND,
-    BLACK_MAGITION_3RD_WARRENT_SECOND
-)
+from consts.const import *
 from utils.thread import THREADING_WITH_TRACE
 
 
-meteo_pattern = None
-warrent_pattern = None
+boom_pattern = None
+left_stone_pattern = None
+brase_30_pattern = None
+brase_45_pattern = None
+brase_60_pattern = None
+out_timer_pattern = None
 
 
 def on_reset(root, stringvar, sec, entry):
@@ -44,31 +43,95 @@ def on_reset(root, stringvar, sec, entry):
 
 
 def on_click(
-        root, 
-        meteo_stringvar = None, 
-        warrent_stringvar = None, 
-        meteo_sec = 0,
-        warrent_sec = 0,
-        meteo_second_entry = None, 
-        warrent_second_entry = None
+        root,
+        boom_stringvar = None, boom_sec = 0, boom_second_entry = None,
+        left_stone_stringvar = None, left_stone_sec = 0, left_stone_second_entry = None,
+        brase_30_stringvar = None, brase_30_sec = 0, brase_30_second_entry = None,
+        brase_45_stringvar = None, brase_45_sec = 0, brase_45_second_entry = None,
+        brase_60_stringvar = None, brase_60_sec = 0, brase_60_second_entry = None,
+        out_timer_stringvar = None, out_timer_sec = 0, out_timer_second_entry = None,
+        check = False,
     ):
 
-    global meteo_pattern, warrent_pattern
+    global boom_pattern, left_stone_pattern, brase_30_pattern, brase_45_pattern, brase_60_pattern, out_timer_pattern
 
-    if meteo_sec == BLACK_MAGITION_3RD_METEO_SECOND:
-        if meteo_pattern:
-            meteo_pattern.kill()
-        meteo_pattern = THREADING_WITH_TRACE(
-            target=on_reset,
-            args=(root, meteo_stringvar, meteo_sec, meteo_second_entry),
-        )
-        meteo_pattern.start()
+    if check:
+        try:
+            boom_pattern.kill()
+        except:
+            pass
+        try:
+            left_stone_pattern.kill()
+        except:
+            pass
+        try:
+            brase_30_pattern.kill()
+        except:
+            pass
+        try:
+            brase_45_pattern.kill()
+        except:
+            pass
+        try:
+            brase_60_pattern.kill()
+        except:
+            pass
+        try:
+            out_timer_pattern.kill()
+        except:
+            pass
 
-    if warrent_sec == BLACK_MAGITION_3RD_WARRENT_SECOND:
-        if warrent_pattern:
-            warrent_pattern.kill()
-        warrent_pattern = THREADING_WITH_TRACE(
-            target=on_reset,
-            args=(root, warrent_stringvar, warrent_sec, warrent_second_entry),
-        )
-        warrent_pattern.start()
+    else:
+        if boom_sec == BOOM_SECOND:
+            if boom_pattern:
+                boom_pattern.kill()
+            boom_pattern = THREADING_WITH_TRACE(
+                target=on_reset,
+                args=(root, boom_stringvar, boom_sec, boom_second_entry),
+            )
+            boom_pattern.start()
+
+        if left_stone_sec == LEFT_STONE_SECOND:
+            if left_stone_pattern:
+                left_stone_pattern.kill()
+            left_stone_pattern = THREADING_WITH_TRACE(
+                target=on_reset,
+                args=(root, left_stone_stringvar, left_stone_sec, left_stone_second_entry),
+            )
+            left_stone_pattern.start()
+
+        if brase_30_sec == BRASE_30_SECOND:
+            if brase_30_pattern:
+                brase_30_pattern.kill()
+            brase_30_pattern = THREADING_WITH_TRACE(
+                target=on_reset,
+                args=(root, brase_30_stringvar, brase_30_sec, brase_30_second_entry),
+            )
+            brase_30_pattern.start()
+
+        if brase_45_sec == BRASE_45_SECOND:
+            if brase_45_pattern:
+                brase_45_pattern.kill()
+            brase_45_pattern = THREADING_WITH_TRACE(
+                target=on_reset,
+                args=(root, brase_45_stringvar, brase_45_sec, brase_45_second_entry),
+            )
+            brase_45_pattern.start()
+
+        if brase_60_sec == BRASE_60_SECOND:
+            if brase_60_pattern:
+                brase_60_pattern.kill()
+            brase_60_pattern = THREADING_WITH_TRACE(
+                target=on_reset,
+                args=(root, brase_60_stringvar, brase_60_sec, brase_60_second_entry),
+            )
+            brase_60_pattern.start()
+
+        if out_timer_sec == OUT_TIMER_SECOND:
+            if out_timer_pattern:
+                out_timer_pattern.kill()
+            out_timer_pattern = THREADING_WITH_TRACE(
+                target=on_reset,
+                args=(root, out_timer_stringvar, out_timer_sec, out_timer_second_entry),
+            )
+            out_timer_pattern.start()

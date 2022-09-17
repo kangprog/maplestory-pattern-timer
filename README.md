@@ -27,7 +27,10 @@
 ---
 ## 실행 방법
 아래 1번, 2번 중 하나를 선택하여 실행합니다.
-
+0. pyinstaller를 이용해서 exe 파일 생성하는 법
+   ```
+   pyinstaller --onefile --noconsole -i=img/kalos_image.ico main.py
+   ```
 1. 파이썬을 활용하여 직접적으로 실행
     ```python
     $ python main.py
