@@ -51,11 +51,14 @@ def on_click(
         brase_60_stringvar = None, brase_60_sec = 0, brase_60_second_entry = None,
         out_timer_stringvar = None, out_timer_sec = 0, out_timer_second_entry = None,
         check = False,
+        all_check = False,
+        button_name = None ,
     ):
 
     global boom_pattern, left_stone_pattern, brase_30_pattern, brase_45_pattern, brase_60_pattern, out_timer_pattern
 
-    if check:
+    # 모두 정지
+    if all_check:
         try:
             boom_pattern.kill()
         except:
@@ -81,6 +84,23 @@ def on_click(
         except:
             pass
 
+    # 단일 정지
+    elif check:
+        if button_name == "BOOM":
+            print("A")
+            boom_pattern.kill()
+        elif button_name == "LEFT_STONE":
+            left_stone_pattern.kill()
+        elif button_name == "BRASE_30":
+            brase_30_pattern.kill()
+        elif button_name == "BRASE_45":
+            brase_45_pattern.kill()
+        elif button_name == "BRASE_60":
+            brase_60_pattern.kill()
+        elif button_name == "OUT_TIMER":
+            out_timer_pattern.kill()
+
+    # 단일 실행
     else:
         if boom_sec == BOOM_SECOND:
             if boom_pattern:

@@ -3,7 +3,7 @@
 #
 
 APP_COLOR = 'white'
-RESOULTION = "640x400"
+RESOULTION = "620x400"
 TITLE_NAME = "Maple Story Timer (v.kalos)"
 
 FONT = "Arial"
@@ -26,9 +26,11 @@ BRASE_60_SECOND = 60
 OUT_TIMER_SECOND = 60
 
 # 버튼 텍스트
-RESET= "시작(초기화)"
+START = "시작"
+RESET= "초기화"
 ALL_RESET= "전체 시작(초기화)"
 STOP= "전체 정지"
+ONE_STOP = "정지"
 
 # 텍스트 컬러
 WARRNING_COLOR = 'red'

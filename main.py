@@ -296,8 +296,8 @@ def init_button(
     # (0,3), (1,3), (0,4, rowspan=2)
     #
 
-    boom_reset_button = Button(
-        text=RESET,
+    boom_start_button = Button(
+        text=START,
         height=2,
         bg=APP_COLOR,
         font=(FONT, BUTTON_FONT_SIZE, ""),
@@ -309,13 +309,13 @@ def init_button(
             boom_second_entry=boom_second_entry
         )
     )
-    boom_reset_button.grid(
+    boom_start_button.grid(
         row=0,
         column=3,
     )
 
-    left_stone_reset_button = Button(
-        text=RESET,
+    left_stone_start_button = Button(
+        text=START,
         height=2,
         bg=APP_COLOR,
         font=(FONT, BUTTON_FONT_SIZE, ""),
@@ -327,13 +327,13 @@ def init_button(
             left_stone_second_entry=left_stone_second_entry
         )
     )
-    left_stone_reset_button.grid(
+    left_stone_start_button.grid(
         row=1,
         column=3,
     )
 
-    brase_30_reset_button = Button(
-        text=RESET,
+    brase_30_start_button = Button(
+        text=START,
         height=2,
         bg=APP_COLOR,
         font=(FONT, BUTTON_FONT_SIZE, ""),
@@ -345,13 +345,13 @@ def init_button(
             brase_30_second_entry=brase_30_second_entry
         )
     )
-    brase_30_reset_button.grid(
+    brase_30_start_button.grid(
         row=2,
         column=3,
     )
 
-    brase_45_reset_button = Button(
-        text=RESET,
+    brase_45_start_button = Button(
+        text=START,
         height=2,
         bg=APP_COLOR,
         font=(FONT, BUTTON_FONT_SIZE, ""),
@@ -363,13 +363,13 @@ def init_button(
             brase_45_second_entry=brase_45_second_entry
         )
     )
-    brase_45_reset_button.grid(
+    brase_45_start_button.grid(
         row=3,
         column=3,
     )
 
-    brase_60_reset_button = Button(
-        text=RESET,
+    brase_60_start_button = Button(
+        text=START,
         height=2,
         bg=APP_COLOR,
         font=(FONT, BUTTON_FONT_SIZE, ""),
@@ -381,13 +381,13 @@ def init_button(
             brase_60_second_entry=brase_60_second_entry
         )
     )
-    brase_60_reset_button.grid(
+    brase_60_start_button.grid(
         row=4,
         column=3,
     )
 
-    out_timer_reset_button = Button(
-        text=RESET,
+    out_timer_start_button = Button(
+        text=START,
         height=2,
         bg=APP_COLOR,
         font=(FONT, BUTTON_FONT_SIZE, ""),
@@ -399,9 +399,132 @@ def init_button(
             out_timer_second_entry=out_timer_second_entry
         )
     )
-    out_timer_reset_button.grid(
+    out_timer_start_button.grid(
         row=5,
         column=3,
+    )
+
+
+# ==============
+    boom_stop_button = Button(
+        text=ONE_STOP,
+        height=2,
+        bg=APP_COLOR,
+        font=(FONT, BUTTON_FONT_SIZE, ""),
+        command= partial(
+            on_click,
+            root,
+            boom_stringvar=boom_sec,
+            boom_sec=BOOM_SECOND,
+            boom_second_entry=boom_second_entry,
+            check=True,
+            button_name = "BOOM"
+        )
+    )
+    boom_stop_button.grid(
+        row=0,
+        column=4,
+    )
+
+    left_stone_stop_button = Button(
+        text=ONE_STOP,
+        height=2,
+        bg=APP_COLOR,
+        font=(FONT, BUTTON_FONT_SIZE, ""),
+        command= partial(
+            on_click,
+            root,
+            left_stone_stringvar=left_stone_sec,
+            left_stone_sec=LEFT_STONE_SECOND,
+            left_stone_second_entry=left_stone_second_entry,
+            check=True,
+            button_name="LEFT_STONE"
+        )
+    )
+    left_stone_stop_button.grid(
+        row=1,
+        column=4,
+    )
+
+    brase_30_stop_button = Button(
+        text=ONE_STOP,
+        height=2,
+        bg=APP_COLOR,
+        font=(FONT, BUTTON_FONT_SIZE, ""),
+        command= partial(
+            on_click,
+            root,
+            brase_30_stringvar=brase_30_sec,
+            brase_30_sec=BRASE_30_SECOND,
+            brase_30_second_entry=brase_30_second_entry,
+            check=True,
+            button_name="BRASE_30"
+
+        )
+    )
+    brase_30_stop_button.grid(
+        row=2,
+        column=4,
+    )
+
+    brase_45_stop_button = Button(
+        text=ONE_STOP,
+        height=2,
+        bg=APP_COLOR,
+        font=(FONT, BUTTON_FONT_SIZE, ""),
+        command= partial(
+            on_click,
+            root,
+            brase_45_stringvar=brase_45_sec,
+            brase_45_sec=BRASE_45_SECOND,
+            brase_45_second_entry=brase_45_second_entry,
+            check=True,
+            button_name="BRASE_45"
+        )
+    )
+    brase_45_stop_button.grid(
+        row=3,
+        column=4,
+    )
+
+    brase_60_stop_button = Button(
+        text=ONE_STOP,
+        height=2,
+        bg=APP_COLOR,
+        font=(FONT, BUTTON_FONT_SIZE, ""),
+        command= partial(
+            on_click,
+            root,
+            brase_60_stringvar=brase_60_sec,
+            brase_60_sec=BRASE_60_SECOND,
+            brase_60_second_entry=brase_60_second_entry,
+            check=True,
+            button_name="BRASE_60"
+        )
+    )
+    brase_60_stop_button.grid(
+        row=4,
+        column=4,
+    )
+
+    out_timer_stop_button = Button(
+        text=ONE_STOP,
+        height=2,
+        bg=APP_COLOR,
+        font=(FONT, BUTTON_FONT_SIZE, ""),
+        command= partial(
+            on_click,
+            root,
+            out_timer_stringvar=out_timer_sec,
+            out_timer_sec=OUT_TIMER_SECOND,
+            out_timer_second_entry=out_timer_second_entry,
+            check=True,
+            button_name="OUT_TIMER"
+        )
+    )
+    out_timer_stop_button.grid(
+        row=5,
+        column=4,
     )
 
     all_reset_button = Button(
@@ -441,7 +564,7 @@ def init_button(
             brase_45_sec, BRASE_45_SECOND, brase_45_second_entry,
             brase_60_sec, BRASE_60_SECOND, brase_60_second_entry,
             out_timer_sec, OUT_TIMER_SECOND, out_timer_second_entry,
-            check=True
+            all_check=True
         )
     )
     stop_button.grid(
